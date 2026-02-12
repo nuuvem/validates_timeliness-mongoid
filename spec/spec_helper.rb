@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'faker'
+require 'logger'
 require 'mongoid'
 require 'validates_timeliness/mongoid'
 require 'simplecov'
