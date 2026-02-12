@@ -110,6 +110,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 2.2, <= 2.2.16)
   faker (~> 2.17)
+  mongoid (~> 9.0.10)
   pry-byebug (~> 3.9)
   rake (~> 13.0, >= 13.0.3)
   reek (~> 6.0.4)

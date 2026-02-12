@@ -105,15 +105,13 @@ describe ValidatesTimeliness, Mongoid do
           record.publish_time = '12:30'
 
           expect(record.publish_time).to be_kind_of(Time)
-          expect(record.publish_time).to eq Time.new(Time.now.year,
-                                                     Time.now.month,
-                                                     Time.now.day, 12, 30)
+          expect(record.publish_time).to eq Time.zone.local(Time.now.year,
+                                                             Time.now.month,
+                                                             Time.now.day, 12, 30)
         end
       end
 
       context 'with datetime columns' do
-        let(:time_zone) { Faker::Address.time_zone }
-
         it 'parses a string value', broken: true do
           allow(Timeliness::Parser).to receive(:parse)
 
@@ -137,10 +135,10 @@ describe ValidatesTimeliness, Mongoid do
         end
 
         it 'parses string as current timezone' do
-          record.update(publish_datetime: DateTime.new)
+          record.update(publish_datetime: Time.zone.now)
 
           expect(record.publish_datetime.utc_offset).to eq \
-            Time.local(time_zone).utc_offset
+            Time.zone.now.utc_offset
         end
       end
     end
