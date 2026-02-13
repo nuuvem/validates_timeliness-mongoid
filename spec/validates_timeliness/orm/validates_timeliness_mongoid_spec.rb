@@ -106,8 +106,8 @@ describe ValidatesTimeliness, Mongoid do
 
           expect(record.publish_time).to be_kind_of(Time)
           expect(record.publish_time).to eq Time.zone.local(Time.now.year,
-                                                             Time.now.month,
-                                                             Time.now.day, 12, 30)
+                                                            Time.now.month,
+                                                            Time.now.day, 12, 30)
         end
       end
 
