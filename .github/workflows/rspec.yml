@@ -12,6 +12,8 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      MONGOID_VERSION: ${{ matrix.mongoid-version }}
     services:
       mongodb:
         image: mongo
@@ -27,8 +29,6 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
-      - name: Setup Mongoid ENV var
-        run: export MONGOID_VERSION=${{ matrix.mongoid-version }}
       - name: Install dependencies
         run: bundle update --jobs=3 --retry=3
       - name: Run tests
