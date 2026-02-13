@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         ruby-version: ['3.0', '3.1', '3.2', '3.3']
-        mongoid-version: ['7.0.0', '7.1.0', '8.0.0', '8.1.0', '9.0.10']
+        mongoid-version: ['7.1.0', '8.0.0', '8.1.0', '9.0.10']
     steps:
       - uses: actions/checkout@v3
       - name: Set up Ruby ${{ matrix.ruby-version }}
